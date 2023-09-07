@@ -14,14 +14,25 @@ const taskOneController = expressAsyncHandler(async (req, res) => {
     ];
     const getDay = new Date().getDay();
     const current_day = daysOfTheWeek[getDay];
-    console.log(current_day);
 
-    const utc_time = new Date().toISOString();
+    // const utc_time = new Date().toISOString();
+    const currentDate = new Date();
+
+    // Get the components of the date and time
+    const year = currentDate.getUTCFullYear();
+    const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based (0-11)
+    const day = String(currentDate.getUTCDate()).padStart(2, '0');
+    const hours = String(currentDate.getUTCHours()).padStart(2, '0');
+    const minutes = String(currentDate.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getUTCSeconds()).padStart(2, '0');
+
+    // Create the formatted date string
+    const utc_time = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 
     if (!slack_name || !track) {
       return res
         .status(400)
-        .json({ error: 'Both slac_name and track are required.' });
+        .json({ error: 'Both slack_name and track are required.' });
     }
 
     const responase = {
