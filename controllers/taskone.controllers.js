@@ -18,7 +18,7 @@ const taskOneController = expressAsyncHandler(async (req, res) => {
     // const utc_time = new Date().toISOString();
     const currentDate = new Date();
 
-    // Get the components of the date and time
+    //first: Get the components of the date and time
     const year = currentDate.getUTCFullYear();
     const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based (0-11)
     const day = String(currentDate.getUTCDate()).padStart(2, '0');
@@ -26,7 +26,7 @@ const taskOneController = expressAsyncHandler(async (req, res) => {
     const minutes = String(currentDate.getUTCMinutes()).padStart(2, '0');
     const seconds = String(currentDate.getUTCSeconds()).padStart(2, '0');
 
-    // Create the formatted date string
+    //Then: Create the formatted date string
     const utc_time = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 
     if (!slack_name || !track) {
