@@ -20,7 +20,7 @@ const taskOneController = expressAsyncHandler(async (req, res) => {
 
     //first: Get the components of the date and time
     const year = currentDate.getUTCFullYear();
-    const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based (0-11)
+    const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0');
     const day = String(currentDate.getUTCDate()).padStart(2, '0');
     const hours = String(currentDate.getUTCHours()).padStart(2, '0');
     const minutes = String(currentDate.getUTCMinutes()).padStart(2, '0');
