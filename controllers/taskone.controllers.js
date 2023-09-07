@@ -29,8 +29,9 @@ const taskOneController = expressAsyncHandler(async (req, res) => {
       current_day,
       track: track,
       utc_time: utc_time,
-      github_file_url: '',
-      github_repo_url: '',
+      github_file_url:
+        'https://github.com/amazinng-blib/hng_backend/blob/master/controllers/taskone.controllers.js',
+      github_repo_url: 'https://github.com/amazinng-blib/hng_backend',
       status_code: res.statusCode,
     };
 
@@ -41,15 +42,3 @@ const taskOneController = expressAsyncHandler(async (req, res) => {
 });
 
 module.exports = taskOneController;
-
-// date.toISOString();
-
-// {
-//   "slack_name": "example_name",
-//   "current_day": "Monday",
-//   "utc_time": "2023-08-21T15:04:05Z",
-//   "track": "backend",
-//   "github_file_url": "https://github.com/username/repo/blob/main/file_name.ext",
-//   "github_repo_url": "https://github.com/username/repo",
-//   "status_code": 200
-// }
